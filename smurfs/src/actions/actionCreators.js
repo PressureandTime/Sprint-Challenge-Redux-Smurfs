@@ -6,7 +6,10 @@ import {
   GET_SMURFS_FAILURE,
   ADD_SMURFS,
   ADD_SMURFS_SUCCESS,
-  ADD_SMURFS_FAILURE
+  ADD_SMURFS_FAILURE,
+  DELETE_SMURFS,
+  DELETE_SMURFS_SUCCESS,
+  DELETE_SMURFS_FAILURE
 } from './actionTypes';
 
 export function getSmurfs() {
@@ -37,6 +40,23 @@ export function addSmurfs(newSmurf) {
       .catch(err => {
         const error = err.response.data.message;
         dispatch({ type: ADD_SMURFS_FAILURE, payload: error });
+        console.error(error);
+      });
+  };
+}
+
+export function deleteSmurfs(id) {
+  return dispatch => {
+    dispatch({ type: DELETE_SMURFS });
+
+    axios
+      .delete(`http://localhost:3333/smurfs/${id}`)
+      .then(res => {
+        dispatch({ type: DELETE_SMURFS_SUCCESS, payload: res.data });
+      })
+      .catch(err => {
+        const error = err.response.data.message;
+        dispatch({ type: DELETE_SMURFS_FAILURE, payload: error });
         console.error(error);
       });
   };
