@@ -23,8 +23,20 @@ In this challenge, you are to build the Smurfs village once again, only this tim
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+Store is an Object that holds the applications state data,
+Reducer is a function that returns some state data. Is triggered by an action type
+Action is object that tells the reducer how to change the state. It must contain a type property. It can optionally contain a payload property
+
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+State is nothing but the state of the application at a given point of time. Generally component state is stored locally within a component and is not accessible from other components unless it’s explicitly passed as props to it’s sub components.
+Where as redux state is a centralised global store which is accessible to any component that subscribes to the store.
+
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+Redux Thunk is a middleware that lets you call action creators that return a function instead of an action object. That function receives the store's dispatch method, which is then used to dispatch regular synchronous actions inside the body of the function once the asynchronous operations have completed
 
 ## Project Set Up
 
