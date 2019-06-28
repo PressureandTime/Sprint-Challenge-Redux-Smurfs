@@ -4,9 +4,22 @@ import './index.css';
 import App from './components/App';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import { Provider } from 'react-redux';
-import /* You need some sort of reducer */ './reducers';
+
+import {
+  smurfsReducer,
+  errorSmurfReducer,
+  requestPendingReducer
+} from './reducers/reducers';
+
+
+const combinedReducer = combineReducers({
+  smurfs: smurfsReducer,
+  errorSmurfs: errorSmurfReducer,
+  requestPending: requestPendingReducer
+})
+
 
 const store = createStore(
   () => {}, // this is the most basic reducer. A function that returns and object. Replace it.
