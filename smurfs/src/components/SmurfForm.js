@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Smurfs from './Smurfs';
+import { Route, NavLink } from 'react-router-dom';
 import { getSmurfs, addSmurfs } from '../actions/actionCreators';
 
 export class SmurfForm extends Component {
@@ -33,9 +34,9 @@ export class SmurfForm extends Component {
     return (
       <div>
         <div>
-          <h2>Get Smurfs</h2>
           <button onClick={this.props.getSmurfs}>Get smurfs</button>
         </div>
+        <br />
 
         <div>
           <form onSubmit={this.addSmurfs}>
@@ -57,10 +58,17 @@ export class SmurfForm extends Component {
               value={this.state.height}
               name="height"
             />
-            <button type="submit">Add to the village</button>
+            <button type="submit">Add</button>
           </form>
-          <Smurfs smurfs={this.props.smurfs} />
+          {/* <Smurfs smurfs={this.props.smurfs} /> */}
         </div>
+
+        <Route
+          path="/"
+          render={props => {
+            return <Smurfs {...props} smurfs={this.props.smurfs} />;
+          }}
+        />
       </div>
     );
   }

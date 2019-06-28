@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import SmurfForm from './components/SmurfForm';
 import './App.css';
@@ -17,7 +17,26 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <nav>
+          <div className="nav-links">
+            <NavLink exact to="/smurf-form">
+              <h2>Form for getting and adding smurfs</h2>
+            </NavLink>
+            <NavLink exact to="/">
+              <h2>Home</h2>
+            </NavLink>
+            
+          </div>
+        </nav>
+
+        <Route
+          path="/smurf-form"
+          render={props => {
+            return <SmurfForm {...props} />;
+          }}
+        />
+
+     
       </div>
     );
   }
