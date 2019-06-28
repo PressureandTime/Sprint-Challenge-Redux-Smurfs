@@ -4,11 +4,14 @@ import uuid from 'uuid';
 
 export class Smurfs extends Component {
   render() {
-    
     return (
       <div>
         {this.props.smurfs.map(smurf => (
-          <p key={uuid()}>{smurf.name}</p>
+          <p key={uuid()}>
+            Name: {smurf.name} <br />
+            Height: {smurf.height} <br />
+            Age: {smurf.age}
+          </p>
         ))}
       </div>
     );
@@ -16,7 +19,6 @@ export class Smurfs extends Component {
 }
 
 function mapStateToProps(reducers) {
-   
   return {
     requestPending: reducers.requestPending,
     smurfs: reducers.smurfs.smurfs

@@ -34,7 +34,7 @@ export class SmurfForm extends Component {
     return (
       <div>
         <div>
-          <button onClick={this.props.getSmurfs}>Get smurfs</button>
+          <button onClick={this.props.getSmurfs}>Get smurf</button>
         </div>
         <br />
 

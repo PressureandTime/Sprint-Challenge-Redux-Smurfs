@@ -25,11 +25,11 @@ class App extends Component {
             <NavLink exact to="/">
               <h2>Home</h2>
             </NavLink>
-            
           </div>
         </nav>
 
         <Route
+          exact
           path="/smurf-form"
           render={props => {
             return <SmurfForm {...props} />;
