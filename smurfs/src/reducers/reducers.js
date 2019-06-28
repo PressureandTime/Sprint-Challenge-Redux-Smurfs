@@ -74,14 +74,12 @@ export function errorSmurfReducer(sliceOfState = initialState, action) {
       return {
         ...sliceOfState,
         deletingSmurfs: true
-       
       };
 
     case DELETE_SMURFS_FAILURE:
       return {
         ...sliceOfState,
         deletingSmurfs: false
-       
       };
 
     default:

@@ -28,6 +28,7 @@ export class SmurfForm extends Component {
     };
 
     this.props.addSmurfs(newSmurf);
+    this.setState({ id: '', name: '', age: '', height: '' });
   };
 
   render() {
@@ -60,7 +61,6 @@ export class SmurfForm extends Component {
             />
             <button type="submit">Add</button>
           </form>
-          {/* <Smurfs smurfs={this.props.smurfs} /> */}
         </div>
 
         <Route

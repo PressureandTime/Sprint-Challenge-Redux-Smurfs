@@ -3,12 +3,7 @@ import { Route, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import SmurfForm from './components/SmurfForm';
 import './App.css';
-/*
- to wire this component up you're going to need a few things.
- I'll let you do this part on your own. 
- Just remember, `how do I `connect` my components to redux?`
- `How do I ensure that my component links the state to props?`
- */
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -20,10 +15,10 @@ class App extends Component {
         <nav>
           <div className="nav-links">
             <NavLink exact to="/smurf-form">
-              <h2>Form for getting and adding smurfs</h2>
+              <h3>Form for getting and adding smurfs</h3>
             </NavLink>
             <NavLink exact to="/">
-              <h2>Home</h2>
+              <h3>Home</h3>
             </NavLink>
           </div>
         </nav>
@@ -35,8 +30,6 @@ class App extends Component {
             return <SmurfForm {...props} />;
           }}
         />
-
-     
       </div>
     );
   }
